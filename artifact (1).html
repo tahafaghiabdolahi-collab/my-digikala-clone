@@ -1,0 +1,28 @@
+// script.js
+const products = [
+    { id: 1, name: "گوشی هوشمند مدل X", price: "۱۲,۰۰۰,۰۰۰ تومان", img: "https://via.placeholder.com/150" },
+    { id: 2, name: "هدفون بی‌سیم", price: "۲,۵۰۰,۰۰۰ تومان", img: "https://via.placeholder.com/150" },
+    { id: 3, name: "لپ‌تاپ گیمینگ", price: "۴۵,۰۰۰,۰۰۰ تومان", img: "https://via.placeholder.com/150" },
+];
+
+const container = document.getElementById('product-container');
+let cartCount = 0;
+
+// رندر کردن محصولات
+products.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.price}</p>
+        <button onclick="addToCart()">افزودن به سبد</button>
+    `;
+    container.appendChild(card);
+});
+
+function addToCart() {
+    cartCount++;
+    document.getElementById('cart-count').innerText = cartCount;
+    alert("آفرین مشتی طاها! محصول اضافه شد 😉");
+}
